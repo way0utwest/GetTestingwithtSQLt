@@ -86,6 +86,7 @@ while @@FETCH_STATUS = 0
 	select @cmd = @cmd + @lf + '  exec tsqlt.AssertResultSetsHaveSameMetaData '
 	select @cmd = @cmd + @lf + '     @expectedCommand = N''select * from ' + @table + '.Expected'','
 	select @cmd = @cmd + @lf + '     @actualCommand = N''select * from ' + @table + ''','
+	SELECT @cmd = @cmd + @lf + '     @FailMsg = N''Incorrect metadata'' ' 
 
 	-- close procedure
 	select @cmd = @cmd + @lf + @lf + ' end' + @lf + 'return ' + @lf
@@ -99,7 +100,7 @@ while @@FETCH_STATUS = 0
 -- remove last comma and two format characters
 select @cmd = substring( @cmd, 1, len(@cmd) - 1) + ');' + char(13) + char(10);
 
-select @cmd
+print @cmd
 
 deallocate mycurs
 

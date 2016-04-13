@@ -35,14 +35,24 @@ select top 10
 exec tSQLt.NewTestClass @ClassName = N'RSSFeeds';
 exec tSQLt.NewTestClass @ClassName = N'Contacts';
 exec tSQLt.NewTestClass @ClassName = N'Blogs';
+exec tSQLt.NewTestClass @ClassName = N'CountryCodes';
 exec tSQLt.NewTestClass @ClassName = N'v_articles';
 -- etc.
+
+
+
 
 
 
 -- group by testing type
 exec tSQLt.NewTestClass @ClassName = N'CITests';
 exec tSQLt.NewTestClass @ClassName = N'AcceptanceTests';
+
+
+
+
+
+
 
 -- execute by class
 exec tSQLt.RunTestClass @TestClassName = N'Blogs' -- nvarchar(max)

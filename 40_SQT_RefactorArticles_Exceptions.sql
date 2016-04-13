@@ -170,8 +170,19 @@ go
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 -- refactor procedure:
--- Ignore a lack of a parameter
+-- Developer decides to ignore a lack of a parameter
 ALTER procedure SetArticlesReadingEstimate
 	@articleid as int = null
 /*
@@ -263,9 +274,23 @@ update
 
 GO
 
+
+
+
 -- test the procedure
 exec SetArticlesReadingEstimate;
 GO
+
+
+
+
+
+
+
+
+
+
+
 
 
 -- Now, fix the test
@@ -329,9 +354,36 @@ BEGIN
 END
 GO
 
+
+
+
+
+
+
+
+
+
+
+
+
 -- run test
 EXEC tsqlt.run '[Articles].[test SetArticlesReadingEstimate with No Parameter]'  
 go
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

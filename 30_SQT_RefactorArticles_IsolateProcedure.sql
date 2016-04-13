@@ -46,7 +46,7 @@ BEGIN
 	, @actresult int
   SELECT @article = REPLICATE('alpha ', 1000)
 
-  SELECT @expresult = 4
+  SELECT @expresult = 3
 
   -- act
   SELECT @actresult = dbo.calculateEstimateOfReadingTime(@article)
@@ -197,8 +197,10 @@ BEGIN
 
 
  -- Assert:
- exec tsqlt.AssertEqualsTable @Expected = N'Articles.expected',
-  @Actual = N'dbo.articles', @FailMsg = N'The reading estimate is incorrect.';
+ exec tsqlt.AssertEqualsTable
+  @Expected = N'Articles.expected',
+  @Actual = N'dbo.articles', 
+  @FailMsg = N'The reading estimate is incorrect.';
 END
 GO
 
