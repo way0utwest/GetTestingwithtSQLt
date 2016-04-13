@@ -79,3 +79,7 @@ as
 
 -- contacts check valid email
 -- rssfeeds, check names of columns
+
+GO
+
+EXEC tsqlt.runall;
